@@ -1,4 +1,4 @@
-GTHive is a new Android application designed to make life a little easier for students at Georgia Tech. GTHive automates the LAWN wifi network login process so that students can connect their phone to the Georgia Tech wifi network with one button press.
+GTHive is a Android application designed to make life a little easier for students at Georgia Tech. GTHive automates the LAWN wifi network login process so that students can connect their phone to the Georgia Tech wifi network with one button press.
 
 Features:
 
@@ -11,4 +11,4 @@ Requirements:
     * Android 1.1+
     * An active Georgia Tech login
 
-Currently, email support for mail.gatech.edu has been partially implemented but it is not fully activated. If you have any questions then please email me at craigsc333@gmail.com
+Currently, email support for mail.gatech.edu has been partially implemented but it does not support automatic authentication yet. 
