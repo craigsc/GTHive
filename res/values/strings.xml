@@ -2,6 +2,7 @@
 <resources>
     <string name="hello">Hello World, GTHive!</string>
     <string name="app_name">GTHive</string>
+    <string name="rec_name">GTHiveReceiver</string>
     <string name="settings_label">GTHive Settings</string>
     <string name="web_label">Web</string>
 </resources>

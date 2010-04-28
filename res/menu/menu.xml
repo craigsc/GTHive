@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
-		android:id="@+id/email"
-		android:icon="@android:drawable/ic_menu_send"
-		android:title="Email"
-		android:alphabeticShortcut="e"/>
-	<item
 		android:id="@+id/settings"
 		android:icon="@android:drawable/ic_menu_preferences"
 		android:title="Settings"

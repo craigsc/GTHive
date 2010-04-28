@@ -53,6 +53,7 @@ public class GTHive extends Activity implements OnClickListener, TextWatcher {
 	public static final String PREFS_NAME = "gthive_data";
 	public static final int CLEARED_DATA = 3333;
 	private static final String TAG = "GTHive";
+	public static final String SSID = "GTWireless";
 	private SharedPreferences settings;
 	private SharedPreferences.Editor editor;
 	private EditText user;
@@ -163,7 +164,7 @@ public class GTHive extends Activity implements OnClickListener, TextWatcher {
 				
 				//If not connected or if SSID of connected network is not GTwireless then fail
 				if (!cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected() || 
-						!wifi.getConnectionInfo().getSSID().equalsIgnoreCase("GTwireless")) {
+						!wifi.getConnectionInfo().getSSID().equalsIgnoreCase(SSID)) {
 					display("Device is not connected to the Lawn wifi network. Please connect to the proper network and try again.");
 					return;
 				}
@@ -330,10 +331,10 @@ public class GTHive extends Activity implements OnClickListener, TextWatcher {
 		case R.id.quit:
 			finish();
 			return true;
-		case R.id.email:
+		/*case R.id.email:
 			//TODO this is not entirely supported yet and needs major work, see Web.java
 			startActivity(new Intent(this, Web.class));
-			return true;
+			return true;*/
 		}
 		return super.onOptionsItemSelected(item);
 	}

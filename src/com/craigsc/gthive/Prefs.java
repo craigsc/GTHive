@@ -89,6 +89,17 @@ public class Prefs extends PreferenceActivity {
 	}
 	
 	/**
+	 * Returns true if preferences are set to auto signin whenever wifi
+	 * is connected to GTWireless, false otherwise.
+	 * @param c Context of the activity
+	 * @return boolean true if GTHive should auto signin, false otherwise
+	 */
+	public static boolean getAutoSignin(Context c) {
+		return PreferenceManager.getDefaultSharedPreferences(c)
+				.getBoolean("auto_signin", true);
+	}
+	
+	/**
 	 * Determines if preferences denote that wifi should be automatically 
 	 * enabled when needed.
 	 * @param c the Context of the activity
