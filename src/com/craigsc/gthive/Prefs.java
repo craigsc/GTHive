@@ -119,6 +119,18 @@ public class Prefs extends PreferenceActivity {
 		return PreferenceManager.getDefaultSharedPreferences(c)
 				.getBoolean("iss", true);
 	}
+
+	/**
+	 * Determines if preferences denote that messages should be shown when the
+	 * user is auto signed in.
+	 * @param c the Context of the Activity
+	 * @return boolean, true if toast messages should be displayed with status info
+	 * on an attempted auto signin
+	 */
+	public static boolean showAutoSigninMessages(Context c) {
+		return PreferenceManager.getDefaultSharedPreferences(c)
+				.getBoolean("auto_signin_messages", false);
+	}
 	
 	/**
 	 * Called when Preference activity finishes. This method checks whether the

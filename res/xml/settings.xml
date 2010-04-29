@@ -3,11 +3,6 @@
 	<PreferenceCategory
 		android:title="Login Settings">
 		<CheckBoxPreference
-			android:key="auto_signin"
-			android:title="Auto Sign-In"
-			android:summary="Automatically sign into LAWN when connected to GTWireless."
-			android:defaultValue="true"/>
-		<CheckBoxPreference
 			android:key="iss"
 			android:title="Enable ISS"
 			android:summary="Enable the inbound security service."
@@ -16,6 +11,20 @@
 			android:key="wifi"
 			android:title="Auto-Enable Wifi"
 			android:summary="Automatically enable wifi when needed during manual sign-in."
+			android:defaultValue="false"/>
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="Auto Sign-In">
+		<CheckBoxPreference
+			android:key="auto_signin"
+			android:title="Auto Sign-In"
+			android:summary="Automatically sign into LAWN when connected to GTWireless."
+			android:defaultValue="true"/>
+		<CheckBoxPreference
+			android:key="auto_signin_messages"
+			android:title="Enable Messages"
+			android:summary="Display message informing whether an auto sign-in completed successfully."
 			android:defaultValue="false"/>
 	</PreferenceCategory>
 	

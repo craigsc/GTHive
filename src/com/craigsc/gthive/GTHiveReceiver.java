@@ -16,17 +16,20 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class GTHiveReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		if (Prefs.getAutoSignin(context)) {
+			NetworkInfo ni = (NetworkInfo) intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
 			WifiInfo wi = ((WifiManager) context.getSystemService(Context.WIFI_SERVICE)).getConnectionInfo();
-			if (wi != null && wi.getSSID().equalsIgnoreCase(GTHive.SSID)) {
+			if (ni.isConnected() && wi != null && wi.getSSID().equalsIgnoreCase(GTHive.SSID)) {
 				SharedPreferences settings = context.getSharedPreferences(GTHive.PREFS_NAME, 0);
 				String user = settings.getString("user", null);
 				String pass = settings.getString("pass", null);
@@ -55,17 +58,22 @@ public class GTHiveReceiver extends BroadcastReceiver {
 							result = "Successfully logged into LAWN";
 						}
 						else if (result.equals("")) {
-							result = "Already logged in to LAWN.";
+							result = "Already logged into LAWN.";
 						} 
-						//Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-					}
-					catch (Exception e) {
-						//Toast.makeText(context, "Error authenticating to LAWN. Try using GTHive.", Toast.LENGTH_LONG).show();
+						display(context, result);
+					} catch (Exception e) {
+						display(context, "Error authenticating to LAWN. Try using GTHive.");
 						Log.d("GTHive_BROADCAST_RECEIVER", e.toString());
 					}
 					
 				}
 			}
+		}
+	}
+	
+	private void display(Context c, String text) {
+		if (Prefs.showAutoSigninMessages(c)) {	
+			Toast.makeText(c, text, Toast.LENGTH_LONG).show();
 		}
 	}
 }
